@@ -61,7 +61,7 @@ public class OfficeController {
 	}
 
 	@PutMapping("/{id}")
-	public void updateOfficeById(@PathVariable("id") int id, @RequestParam("qty") Integer sales) {
+	public void updateOfficeById(@PathVariable("id") int id, @RequestParam("sales") Integer sales) {
 		LOG.info("updateOfficeById start, id={}, sales={}", id, sales);
 		Office office = officeService.findOfficeById(BigDecimal.valueOf(id));
 		if (Objects.isNull(office)) {
