@@ -1,4 +1,3 @@
-# office-management-app <br></br>
 An application, using REST API to retrieve a description about company's offices from the database. All key methods are covered with JUnit tests. Postman JSON collection with requests using application methods is attahed.
 <br>
 <br>Technologies: _Maven, Spring-boot(executable jar), Postman, Intellij IDEA_ </br>
