@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "1111805b-b545-4ed9-8361-595b3e708932",
+		"name": "SpringBootProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllOffices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8090/office",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"office"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOfficeById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8090/office/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"office",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addOffice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"office\": 20,\n  \"city\": \"KIEV\",\n  \"region\": \"KIEV\",\n  \"mgr\": 108,\n  \"target\": 50,\n  \"sales\": 50\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/office",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"office"
+					],
+					"query": [
+						{
+							"key": "office",
+							"value": "77",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOfficeById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8090/office/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"office",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateOfficeById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8090/office/20?sales=2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"office",
+						"20"
+					],
+					"query": [
+						{
+							"key": "sales",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

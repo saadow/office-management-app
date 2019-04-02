@@ -6,7 +6,7 @@ import java.util.Set;
 import saadow.office_management_app.entity.Office;
 
 public interface OfficeService {
-	Set<Office> getAllOffice();
+	Set<Office> getAllOffices();
 
 	Office findOfficeById(BigDecimal id);
 

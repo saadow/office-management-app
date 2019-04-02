@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import saadow.office_management_app.entity.Office;
 import saadow.office_management_app.service.OfficeService;
+import saadow.office_management_app.service.OfficeServiceImpl;
 
 @RestController
 @RequestMapping("/office")
@@ -30,19 +31,12 @@ public class OfficeController {
 
 
 	@Autowired
-	private OfficeService officeService;
+	private OfficeService officeService = new OfficeServiceImpl();
 
 	@GetMapping
-	public @ResponseBody Set<Office> getOfficeQtyBetween() {
-		LOG.debug("getOfficeQtyBetween use getAllOffice");
-		return officeService.getAllOffice();
-	}
-
-	@PostMapping
-	public void addOffice(@Valid @RequestBody Office OfficeRequest) {
-		LOG.info("addOffice start, OfficeRequest={}", OfficeRequest);
-		officeService.insertOffice(OfficeRequest);
-		LOG.info("addOffice end");
+	public @ResponseBody Set<Office> getAllOffices() {
+		LOG.debug("getAllOffices uses service getAllOffices");
+		return officeService.getAllOffices();
 	}
 
 	@GetMapping("/{id}")
@@ -51,6 +45,13 @@ public class OfficeController {
 		Office result = officeService.findOfficeById(BigDecimal.valueOf(id));
 		LOG.info("getOfficeById end");
 		return result;
+	}
+
+	@PostMapping
+	public void addOffice(@Valid @RequestBody Office office) {
+		LOG.info("addOffice start, Office={}", office);
+		officeService.insertOffice(office);
+		LOG.info("addOffice end");
 	}
 
 	@DeleteMapping("/{id}")
