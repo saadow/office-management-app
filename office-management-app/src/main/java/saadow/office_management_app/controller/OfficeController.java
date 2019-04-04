@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import saadow.office_management_app.entity.Office;
 import saadow.office_management_app.service.OfficeService;
-import saadow.office_management_app.service.OfficeServiceImpl;
 
 @RestController
 @RequestMapping("/office")
@@ -31,7 +30,7 @@ public class OfficeController {
 
 
 	@Autowired
-	private OfficeService officeService = new OfficeServiceImpl();
+	private OfficeService officeService;
 
 	@GetMapping
 	public @ResponseBody Set<Office> getAllOffices() {
