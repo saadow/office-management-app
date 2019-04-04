@@ -3,7 +3,8 @@
 <Configuration status="DEBUG" monitorInterval="30">
 	<Properties>
 		<Property name="LOG_PATTERN">
-			| %d{yyyy-MM-dd HH:mm:ss} | %p | at %C{2}(%F:%L) -- [%X{uuid}] | %m | %n  
+			| %d{yyyy-MM-dd HH:mm:ss} | %p | at
+			%C{2}(%F:%L) -- [%X{uuid}] | %m | %n
 		</Property>
 	</Properties>
 
@@ -21,19 +22,9 @@
 			</Policies>
 			<DefaultRolloverStrategy max="2" />
 		</RollingFile>
-    
-		<SMTP name="FEMAIL" SMTPProtocol="smtps"
-			SMTPHost="smtp.gmail.com" SMTPPort="465"
-			SMTPUsername="vadim.chumasov@gmail.com" SMTPPassword="1111"
-			To="vadim.chumasov@gmail.com" from="vadim.chumasov@gmail.com"
-			Subject="Jaw-dropping Customers Error Log">
-		</SMTP>
 
 	</Appenders>
 	<Loggers>
-		<AsyncLogger name="error-logger" level="DEBUG">
-			<AppenderRef ref="FEMAIL" />
-		</AsyncLogger>
 		<Root level="DEBUG" includeLocation="true">
 			<AppenderRef ref="STDOUT" level="DEBUG" />
 			<AppenderRef ref="PROGRAM-LOGGER-APPENDER" level="DEBUG" />
