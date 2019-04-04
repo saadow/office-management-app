@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import saadow.office_management_app.dao.OfficeDao;
+import saadow.office_management_app.dao.OfficeDaoImpl;
 import saadow.office_management_app.entity.Office;
 
 @Service
@@ -20,42 +21,42 @@ public class OfficeServiceImpl implements OfficeService {
 	private static final Logger LOG = LogManager.getLogger(OfficeServiceImpl.class);
 
 	@Autowired
-	private OfficeDao OfficeDao;
+	private OfficeDao officeDao;
 
 	@Override
-	public Set<Office> getAllOffice() {
-		LOG.debug("getAllOffice");
-		HashSet<Office> result = new HashSet<>(OfficeDao.getAllOffices());
-		LOG.debug("getAllOffice return {} records", result.size());
+	public Set<Office> getAllOffices() {
+		LOG.debug("getAllOffices");
+		HashSet<Office> result = new HashSet<>(officeDao.getAllOffices());
+		LOG.debug("getAllOffices return {} records", result.size());
 		return result;
 	}
 
 	@Override
 	public Office findOfficeById(BigDecimal id) {
 		LOG.debug("findOfficeById, id={}", id);
-		Office result = OfficeDao.findOfficeById(id);
+		Office result = officeDao.findOfficeById(id);
 		LOG.debug("findOfficeById, result={}", result);
 		return result;
 	}
 
 	@Override
-	public void insertOffice(Office Office) {
-		LOG.debug("insertOffice, Office={}", Office);
-		OfficeDao.insertOffice(Office);
+	public void insertOffice(Office office) {
+		LOG.debug("insertOffice, Office={}", office);
+		officeDao.insertOffice(office);
 		LOG.debug("insertOffice completed");
 	}
 
 	@Override
-	public void updateOffice(Office Office) {
-		LOG.debug("updateOffice, Office={}", Office);
-		OfficeDao.updateOffice(Office);
+	public void updateOffice(Office office) {
+		LOG.debug("updateOffice, Office={}", office);
+		officeDao.updateOffice(office);
 		LOG.debug("updateOffice completed");
 	}
 
 	@Override
 	public void deleteOffice(BigDecimal id) {
 		LOG.debug("deleteOffice, id={}", id);
-		OfficeDao.deleteOffice(id);
+		officeDao.deleteOffice(id);
 		LOG.debug("deleteOffice completed");
 	}
 
